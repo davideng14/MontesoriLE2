@@ -6,23 +6,12 @@ class FirstStep extends Component {
     render() {
         return (
             <>
-                <FormGroup>
-                    <Label for="exampleFile">PDF CV</Label>
-                    <Input type="file" name="file" id="exampleFile" />
-                    <FormText color="muted">
-                    This is some placeholder block-level help text for the above input.
-                    It's a bit lighter and easily wraps to a new line.
-                    </FormText>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleUrl">LinkedIn Profile</Label>
-                    <Input
-                    type="url"
-                    name="url"
-                    id="exampleUrl"
-                    placeholder="profile"
-                    />
-                </FormGroup>
+                <h1>
+                    Bienvenido a la tienda virtual de la Feria Empresarial LE2
+                </h1>
+                <h4>
+                    Realizada por: Andrea Carolina Vargas
+                </h4>
             </>
         );
     }

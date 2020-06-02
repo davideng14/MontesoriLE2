@@ -1,21 +1,25 @@
 import React from 'react';
 import './Logins.scss';
-import logo from '../assets/logo.png';
 
 const Login = () => {
     return (
         <section>
             <div className="loginContainer">
                 <section>
-                    <img className="img" src={logo} alt=""/><br/>
-                    <label>User</label> <br/>
-                    <input type="text" placeholder="User"/><br/>
-                    <label>Password</label><br/>
-                    <input type="text" placeholder="Password"/><br/>
-                    <button class="button">Login</button>
+                    <h2>Feria Empresarial LE2</h2>
+                    <div>
+                        <label>User:</label>
+                        <input type="text" placeholder="User"/>
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="text" placeholder="Password"/>
+                    </div>
+                    <div class="button-container">
+                        <button class="button">Login</button>
+                    </div>
                 </section>
             </div>
-            <a href="/"><p>Sign up</p></a>
     </section>
     )
 }

@@ -5,7 +5,7 @@ import { Progress, Button } from 'reactstrap';
 
 class Users extends Component {
     state = {
-        totalSteps: 4,
+        totalSteps: 3,
         currentStep: 1
     }
 

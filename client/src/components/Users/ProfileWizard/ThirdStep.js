@@ -6,8 +6,8 @@ class ThirdStep extends Component {
     render() {
         return (
             <>
-                <h1>Recommendations</h1>
-                <p> We didn't detect that you have included certifications data.</p>
+                <h1>Compras tus items</h1>
+                <p></p>
             </>
         );
     }
