@@ -11,9 +11,18 @@ var testAPIRouter = require("./routes/testAPI");
 
 var app = express();
 
+
+  // Set static folder
+  app.use('/static', express.static(path.resolve(__dirname, "public/static")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "public", "index.html"));
+  }); 
+
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+/*app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');*/
 
 app.use(logger('dev'));
 app.use(cors());
@@ -23,7 +32,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/testApi', testAPIRouter);
 
 // catch 404 and forward to error handler
