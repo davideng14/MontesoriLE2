@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './assets/logo.png';
+import { fetchTestData } from './services/api';
 import Business from './components/Business/Business';
 import Users from './components/Users/Users';
 import Login from './components/Login';
@@ -12,28 +13,28 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './scss/App.scss';
 
-class App extends Component {
+function App() {
+  const [apiResponse, setApiResponse] = useState("");
 
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const res = await fetchTestData();
+        setApiResponse(res);
+      } catch (error) {
+        // Handle error appropriately in your UI
+        console.error("Failed to fetch data on mount:", error);
+        setApiResponse("Failed to load data");
+      }
+    };
+    loadData();
+  }, []); // Empty dependency array means this effect runs once on mount
 
-  callAPI() {
-      fetch("http://localhost:9000/testAPI")
-          .then(res => res.text())
-          .then(res => this.setState({ apiResponse: res }));
-  }
-
-  componentDidMount() {
-      this.callAPI();
-  }
-
-  render() {
-    return (
-      <Router>
-      
-        <Switch>
+  return (
+    <Router>
+      {/* You might want to display apiResponse somewhere or use it to conditionally render */}
+      {/* For example: <p>API Response: {apiResponse}</p> */}
+      <Switch>
           <Route path="/business">
             <Business />
           </Route>
@@ -47,7 +48,6 @@ class App extends Component {
       
     </Router>
     );
-  }
 }
 
 export default App;

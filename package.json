@@ -4,7 +4,7 @@
   "description": "Hacklab Prototype",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cd api && npm test && cd ../client && npm test -- --watchAll=false",
     "start": "node api/bin/www",
     "build": "cd api && npm i && cd ../client && npm i && npm run build && cp -R build/* ../api/public "
   },
